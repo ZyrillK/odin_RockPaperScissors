@@ -1,4 +1,8 @@
 
+
+function playGame() {
+
+
 /**
  * Get ComputerChoice
  * 
@@ -55,5 +59,102 @@ function getHumanChoice() {
     return userInput;
 }
 
+
 let computerScore = 0;
 let humanScore = 0;
+
+/**
+ * playRound
+ * 
+ * playRound takes two inputs and returns result of round
+ * 
+ * Take userInput, compare with compInput
+ * to get all cases, must use switch within
+ * conditionals
+ */
+
+function playRound(humanChoice, computerChoice) {
+
+    console.log(computerChoice);
+    console.log(humanChoice);
+
+    let win = "You win! ";
+    let lose = "You lose! ";
+    let pbr = "Paper beats Rock";
+    let rbs = "Rock beats Scissors";
+    let sbp = "Scissors beats Paper";
+
+    let result = "BUG :(";
+
+    if(humanChoice === "rock") {
+
+        switch(computerChoice) {
+            case "paper":
+                result = lose + pbr;
+                break;
+            case "scissors":
+                result = win + rbs;
+                break;
+            default:
+                result = "Tie!";
+                break;
+        }
+    }
+    else if(humanChoice === "paper") {
+
+        switch(computerChoice) {
+            case "scissors":
+                result = lose + sbp;
+                break;
+            case "rock":
+                result = win + pbr;
+                break;
+            default:
+                result = "Tie!";
+                break;
+        }
+    }
+    else {
+
+        switch(computerChoice) {
+            case "paper":
+                result = win + sbp;
+                break;
+            case "rock":
+                result = lose + rbs;
+            default:
+                result = "Tie!";
+                break;
+        }
+    }
+
+    return result;
+
+}
+
+for(i = 0; i < 5; i++) {
+    
+
+let humanSelection = getHumanChoice();
+let computerSelection = getComputerChoice();
+
+let result = playRound(humanSelection, computerSelection);
+
+console.log(result);
+
+result = result.substring(4,7);
+
+if (result === 'win') 
+    humanScore++;
+else if(result === 'lose')
+    computerScore++;
+
+}
+
+
+console.log(humanScore);
+console.log(computerScore);
+
+}
+
+playGame();
