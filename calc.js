@@ -75,8 +75,8 @@ let humanScore = 0;
 
 function playRound(humanChoice, computerChoice) {
 
-    console.log(computerChoice);
-    console.log(humanChoice);
+    console.log(`The computer chose ${computerChoice}`);
+    console.log(`You chose ${humanChoice}`);
 
     let win = "You win! ";
     let lose = "You lose! ";
@@ -122,6 +122,7 @@ function playRound(humanChoice, computerChoice) {
                 break;
             case "rock":
                 result = lose + rbs;
+                break;
             default:
                 result = "Tie!";
                 break;
@@ -142,19 +143,24 @@ let result = playRound(humanSelection, computerSelection);
 
 console.log(result);
 
+let tieTest = result;
 result = result.substring(4,7);
+
+
 
 if (result === 'win') 
     humanScore++;
-else if(result === 'lose')
+else if (tieTest !== 'Tie!')
     computerScore++;
 
 }
 
 
-console.log(humanScore);
-console.log(computerScore);
+console.log(`Human score is ${humanScore}`);
+console.log(`Computer score is ${computerScore}`);
 
 }
+
+//main
 
 playGame();
