@@ -122,6 +122,7 @@ function playRound(humanChoice, computerChoice) {
                 break;
             case "rock":
                 result = lose + rbs;
+                break;
             default:
                 result = "Tie!";
                 break;
